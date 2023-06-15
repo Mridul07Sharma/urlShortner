@@ -9,7 +9,7 @@ const staticRoute=require("./routes/staticRouter");
 const URL = require("./models/url");
 const BASE_URL=process.env.BASE_URL || "mongodb://127.0.0.1:27017/short-url";
 const app=express();
-const PORT=8001;
+const PORT= process.env.PORT || 8001;
 connectToMongoDB(BASE_URL)
 .then(()=>console.log('MongoDB Connected'));
 app.set("view engine","ejs");
