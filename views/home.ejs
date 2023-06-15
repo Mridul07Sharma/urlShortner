@@ -3,30 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <title>URL Shortner</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
 </head>
-<body>
-    <h1>URL Shortner</h1>
-    <% if(locals.id){ %>
-        <p>URL Generated: https://urlshortner-1y8s.onrender.com/url/<%=id%></p>
-        <% } %>
-    <div class="">
-        <form action="/url" method="POST">
-            <label for="">Enter Your Original URL</label>
-            <input type="url" name="url" placeholder="https://example.com"/>
-            <button type="submit">Shrink</button>
+<body>  
+     <div class="d-flex justify-content-center mb-1 py-4 text-white bg-dark"><h1>URL Shortner</h1></div> 
+    
+    <div class="container">
+    
+    <div class="d-flex justify-content-center">
+        <form action="/url" class="row g-3 py-4 my-4" method="POST">
+            <div class="d-flex justify-content-center">
+                <label class="form-label fs-2" for="url">Enter Your Original URL</label>
+            </div>
+            <div class="d-flex justify-content-center">
+                <div class="col-sm-10 mx-4">
+                    <input type="url" class="form-control" name="url" placeholder="https://example.com"/>
+                </div>
+               <div class="col-auto ">
+               <button class="btn btn-success px-4" type="submit">Shrink</button>
+               </div>
+            </div>
         </form>
     </div>
+    <% if(locals.id){ %>
+        <div class="d-flex justify-content-center" style="min-height: 48vh;">
+        <p class="fs-5"><span class="fw-bold">URL Generated:</span> https://urlshortner-1y8s.onrender.com/url/<%=id%></p>
+        </div>
+    <% } %>
     <div>
         <% if(locals.urls){ %>
-            <table>
+            <table class="table table-success table-striped">
                 <thead>
                     <tr>
-                    <th>S. No.</th>
-                    <th>ShortID</th>
-                    <th>redirect</th>
-                    <th>Clicks</th>
+                    <th class="table-danger">S. No.</th>
+                    <th class="table-danger">ShortID</th>
+                    <th class="table-danger">redirect</th>
+                    <th class="table-danger">Clicks</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -40,7 +54,15 @@
                         <% })  %>
                 </tbody>
             </table>
-            <% } %>
+            <% } %>           
     </div>
+</div>
+<footer class="footer navbar-fixed-bottom mt-auto py-3 bg-body-tertiary border-bottom border-bottom-dark bg-dark" data-bs-theme="dark">
+    <div class="container text-center">
+      <span class="text-body-secondary">Made with &hearts; by Mridul @2023</span>
+    </div>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 </html>
